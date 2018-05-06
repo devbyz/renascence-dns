@@ -1,0 +1,110 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" default="report">
+	<property environment="env" />
+	
+    <property file="build.properties" />
+    
+    <ivy:settings file="ivysettings.xml" />
+    
+    <target name="resolve">
+        <ivy:retrieve conf="compile" pattern="${lib.dir}/[artifact].[ext]" sync="yes"/>
+    </target>
+
+	<target name="report" description="--> generates a report of dependencies">
+		<ivy:retrieve pattern="${lib.dir}/[artifact].[ext]" sync="yes"/>
+		<delete dir="${report.build.dir}" />
+		<ivy:report todir="${report.build.dir}" />
+	</target>
+	
+	<target name="refresh" depends="jar,sources,javadocs">
+			
+	</target>
+
+    <target name="publish-release" depends="jar,sources,javadocs" description="publishes to release repository">
+    	<ivy:deliver pubrevision="${ivy.revision}.RELEASE" deliverpattern="${artifacts.build.dir}/ivy.xml" />
+		<ivy:makepom ivyfile="${artifacts.build.dir}/ivy.xml" pomfile="${artifacts.build.dir}/${ivy.module}-${ivy.revision}.RELEASE.pom" />
+        <ivy:publish resolver="share-master-releases" pubrevision="${ivy.revision}.RELEASE"
+            artifactsPattern="${artifacts.build.dir}/jars/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="compile"/>
+        <ivy:publish resolver="share-optional-releases" pubrevision="${ivy.revision}.RELEASE"
+            artifactsPattern="${artifacts.build.dir}/sources/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="sources"/>
+        <ivy:publish resolver="share-optional-releases" pubrevision="${ivy.revision}.RELEASE"
+            artifactsPattern="${artifacts.build.dir}/javadocs/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="javadoc"/>
+        <ivy:publish resolver="share-master-releases" pubrevision="${ivy.revision}.RELEASE"
+            artifactsPattern="${artifacts.build.dir}/${ivy.module}-${ivy.revision}.RELEASE.[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="pom"/>
+    </target>
+    
+    <target name="publish-snapshot" depends="jar,sources,javadocs" description="publishes to snapshot repository">
+    	<ivy:deliver pubrevision="${ivy.revision}.SNAPSHOT" deliverpattern="${artifacts.build.dir}/ivy.xml" />
+		<ivy:makepom ivyfile="${artifacts.build.dir}/ivy.xml" pomfile="${artifacts.build.dir}/${ivy.module}-${ivy.revision}.SNAPSHOT.pom" />
+        <ivy:publish resolver="share-master-snapshots" pubrevision="${ivy.revision}.SNAPSHOT"
+            artifactsPattern="${artifacts.build.dir}/jars/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="compile"/>
+        <ivy:publish resolver="share-optional-snapshots" pubrevision="${ivy.revision}.SNAPSHOT"
+            artifactsPattern="${artifacts.build.dir}/sources/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="sources"/>
+        <ivy:publish resolver="share-optional-snapshots" pubrevision="${ivy.revision}.SNAPSHOT"
+            artifactsPattern="${artifacts.build.dir}/javadocs/[artifact].[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="javadoc"/>
+        <ivy:publish resolver="share-master-snapshots" pubrevision="${ivy.revision}.SNAPSHOT"
+            artifactsPattern="${artifacts.build.dir}/${ivy.module}-${ivy.revision}.SNAPSHOT.[ext]" 
+            update="true" forcedeliver="true" overwrite="true" publishivy="false" conf="pom"/>
+    </target>    
+    
+    <target name="jar" depends="resolve,compile" description="Create Jar files">
+    	<delete dir="${artifacts.build.dir}/jars/" />
+        <jar destfile="${artifacts.build.dir}/jars/${ivy.module}.jar">
+            <metainf dir="${basedir}" includes="LICENSE,NOTICE" />
+            <fileset dir="${classes.build.dir}" />
+        </jar>
+    </target>
+	
+    <target name="sources" depends="resolve" description="Create source archive files">
+    	<delete dir="${artifacts.build.dir}/sources/" />
+        <jar destfile="${artifacts.build.dir}/sources/${ivy.module}.jar">
+            <metainf dir="${basedir}" includes="LICENSE,NOTICE" />
+            <fileset dir="${src.dir}" />
+        </jar>
+	</target>
+	
+	<target name="javadocs">
+    	<delete dir="${javadoc.build.dir}" />
+        <javadoc destdir="${javadoc.build.dir}" useexternalfile="true" author="true" 
+        			version="true" use="true" encoding="UTF-8" charset="UTF-8" private="true">
+            <fileset dir="${src.dir}" includes="**/*.java" />
+        </javadoc>
+        <jar destfile="${artifacts.build.dir}/javadocs/${ivy.module}.jar">
+            <fileset dir="${javadoc.build.dir}" />
+        </jar>
+    </target>
+
+   	<target name="compile">
+   		<mkdir dir="${classes.build.dir}" />
+        <javac  srcdir="${src.dir}"
+                destdir="${classes.build.dir}"
+                sourcepath="" 
+                source="${ivy.minimum.javaversion}"
+                target="${ivy.minimum.javaversion}"
+                debug="${debug.mode}"
+                includeantruntime="no">
+                <classpath refid="lib.classpath" />
+        </javac>
+    </target>
+    
+    <target name="clean-lib">
+        <delete dir="${lib.dir}" />
+    </target>
+
+	<target name="clean-cache" description="clean the ivy cache">
+		<ivy:cleancache/>
+	</target>
+	        
+    <path id="lib.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar" />
+        </fileset>
+    </path>    
+
+</project>

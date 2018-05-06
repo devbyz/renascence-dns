@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_152">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=renascence-lang&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
+	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser.cracked-1.0_6.x.jar"/>
+	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser-6.20.jar"/>
+	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser-win32-6.20.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
