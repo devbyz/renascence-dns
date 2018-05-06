@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8" />
-    <title></title>
+    <title>腾讯首页</title>
 </head>
 <style type="text/css">
     html, body
@@ -15,10 +15,10 @@
     {
         margin: 0px 0px;
         width: 100%;
-        height: 100%;
+        height: 800%;
     }
     dl,dt,dd{padding:0px;margin:0px;list-style-type: none;}
-	#boxad {border: #b5b5b5 1px solid; padding: 1px 1px 0px 1px;z-index: 300; background: #ffffff; float: right; overflow: hidden; width: 270px; height: 200px;right: 0px; bottom: 0px;position:fixed;
+	#boxad {border: #b5b5b5 1px solid; padding: 1px 1px 0px 1px;z-index: 300; background: #ffffff; float: right; overflow: hidden; width: 300px; height: 250px;right: 0px; bottom: 0px;position:fixed;
 		_position:absolute; /*兼容IE6*/
 		_top:expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight); /*兼容IE6*/
 	}
@@ -35,14 +35,22 @@
 	#zoomad img{ margin-top:10px}
 </style>
 <body>
-<iframe src="http://www.qq.com" id="iframeId"  scrolling="no" frameborder="0" height="400"></iframe>
+<script type="text/javascript">
+	iframeHeight();
+	
+    function iframeHeight() {
+        document.frames('ifrmname').location.reload();
+    }
+
+</script>
+<iframe src="${url}" id="iframeId" name="ifrmname"  scrolling="no" frameborder="0" ></iframe>
 	<dl id="boxad" data-num="0">
 		<dt>
-			<a id="AD_tit">标题</a>
+			<a id="AD_tit">ad</a>
 			<a href="javascript:;" id="close" ><img title="点击关闭" src="/imgs/guanbi.jpg" border=0></a>
 		</dt>
 		<dd>
-			<a href="#" title="XXX"><img src="http://c.hiphotos.baidu.com/image/h%3D300/sign=6d0bf83bda00baa1a52c41bb7711b9b1/0b55b319ebc4b745b19f82c1c4fc1e178b8215d9.jpg"></a>
+			<a href="${lurl}" target="_blank" title="ad"><img src="/imgs/jdp.png"></a>
 		</dd>
 	</dl>
 	<script src="/js/jquery-2.1.4.min.js" type="text/javascript"></script>
