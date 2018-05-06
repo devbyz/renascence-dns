@@ -9,8 +9,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=renascence-lang&amp;ivyXmlPath=ivy.xml&amp;confs=*"/>
-	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser.cracked-1.0_6.x.jar"/>
-	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser-6.20.jar"/>
-	<classpathentry kind="lib" path="E:/CORE/ASCENCE/renascence-jxbrowser/lib/jxbrowser-win32-6.20.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
