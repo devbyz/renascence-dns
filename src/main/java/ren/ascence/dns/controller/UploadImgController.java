@@ -30,10 +30,19 @@ public class UploadImgController {
 
   private String addr = "/src/main/resources/static/ad/";
 
+  public String getFile() {
+    return getFileDir() + "ad.txt";
+  }
+  
+  public String getFileDir() {
+    String courseFile = FileUtil.getProjectRoot();
+    String fileDir = courseFile + addr;
+    return fileDir;
+  }
+  
   @RequestMapping("/add")
   public String toAdd(ModelMap map,HttpServletRequest request) {
     String staticDomain = request.getScheme()+"://"+ request.getServerName();
-    System.out.println("staticDomain:"+staticDomain);
     map.put("staticDomain", staticDomain);
     return "add";
   }
@@ -41,18 +50,16 @@ public class UploadImgController {
   @RequestMapping("/delete")
   public String delete(HttpServletRequest request) {
     String index = request.getParameter("index");
-    String courseFile = FileUtil.getProjectRoot();
-    String filePath = courseFile + addr;
-    List<String> list = FileUtil.readFileByLinesToList(filePath + "ad.txt");
+    List<String> list = FileUtil.readFileByLinesToList(getFile());
     list.remove(Integer.valueOf(index).intValue());
     if(list.isEmpty()) {
-      FileUtil.deleteFile(filePath + "ad.txt");
+      FileUtil.deleteFile(getFile());
     }
     for(int i=0;i<list.size();i++) {
       if(i==0) {
-        FileUtil.updateFile(filePath + "ad.txt", list.get(0), false);
+        FileUtil.updateFile(getFile(), list.get(0), false);
       }else {
-        FileUtil.updateFile(filePath + "ad.txt", list.get(i), true);
+        FileUtil.updateFile(getFile(), list.get(i), true);
       }
     }
     return "redirect:list";
@@ -60,10 +67,7 @@ public class UploadImgController {
 
   @RequestMapping("/list")
   public String list(ModelMap map,HttpServletRequest request) {
-    //String url = request.getScheme()+"://"+ request.getServerName()+request.getRequestURI()+"?"+request.getQueryString();
-    String courseFile = FileUtil.getProjectRoot();
-    String filePath = courseFile + addr;
-    List<String> list = FileUtil.readFileByLinesToList(filePath + "ad.txt");
+    List<String> list = FileUtil.readFileByLinesToList(getFile());
     List<AdVo> ads = new ArrayList<>();
     for (String str : list) {
       if (StringUtils.isNotBlank(str)) {
@@ -83,9 +87,7 @@ public class UploadImgController {
     if (StringUtils.isNotBlank(webUrl) && StringUtils.isNotBlank(adUrl)
         && StringUtils.isNotBlank(adLanding)) {
       String content = webUrl + " " + adUrl + " " + adLanding;
-      String courseFile = FileUtil.getProjectRoot();
-      String filePath = courseFile + addr;
-      FileUtil.updateFile(filePath+ "ad.txt", content, true);
+      FileUtil.updateFile(getFile(), content, true);
     }
     return "redirect:list";
   }
@@ -101,9 +103,7 @@ public class UploadImgController {
     }
     try {
       String fileName = file.getOriginalFilename();
-      String courseFile = FileUtil.getProjectRoot();
-      String filePath = courseFile + addr;
-      FileUtil.saveToLocal(file.getBytes(), filePath, fileName);
+      FileUtil.saveToLocal(file.getBytes(), getFileDir(), fileName);
       ret.put("creative", fileName);
     } catch (IOException e) {
       e.printStackTrace();

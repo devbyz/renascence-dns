@@ -12,8 +12,9 @@ public class DnsController {
 
   @RequestMapping("/")
   public String oots(ModelMap map,HttpServletRequest request) {
-      
-      System.out.println("request.getRequestURI():"+request.getRequestURI());
+  //String url = request.getScheme()+"://"+ request.getServerName()+request.getRequestURI()+"?"+request.getQueryString();
+    String staticDomain = request.getScheme()+"://"+ request.getServerName();
+    System.out.println("staticDomain:"+staticDomain);
       
       map.put("title", "首页");
       map.put("url", "http://www.qq.com");
