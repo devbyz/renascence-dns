@@ -26,7 +26,7 @@
 							<div class="basic-info">
 								<div class="bd">
 									<ul>
-										<li><span class="p-l-t">网站：</span>
+										<li><span class="p-l-t">网　　　站：</span>
 											<div class="p-r-c">
 												<input type="text" id="webUrl" name="webUrl" value=""
 													class="form-control">
@@ -36,27 +36,31 @@
 												<input type="text" id="adLanding" name="adLanding" value=""
 													class="form-control">
 											</div></li>
-										<li><span class="p-l-t">上传广告：</span>
+										<li><span class="p-l-t">上 传 广 告：</span>
 											<div id="container" class="p-r-c">
 												<a id="pickfiles" href="javascript:;"
-													class="btn btn-success file">上传 <input type="file"
+													class="btn btn-success file">上　传 <input type="file"
 													name="file" id="doc" multiple="multiple" />
 												</a> <label><a href="javascript:;"
 													title="请上传：jpg，jpeg，png，gif文件。文件小于100kb">?</a></label> <a
 													href="javascript:;" id="modal">查看广告尺寸</a>
 											</div></li>
-										<li><span id="creative-p-l-t" class="p-l-t" style="">广告：</span>
+										<li><span id="creative-p-l-t" class="p-l-t" style="">广　　　告：</span>
 											<div class="p-r-c">
 												<div class="up-pic-list">
 													<div id="filelist"><#-- 广告 --></div>
 												</div>
 											</div></li>
-									</ul>
-								</div>
-								<a id="uploadfiles" href="javascript:;" class="btn btn-primary"
+										<li><span id="creative-p-l-t" class="p-l-t" style="">&nbsp;</span>
+											<div class="p-r-c">
+												<a id="uploadfiles" href="javascript:;" class="btn btn-primary"
 									style="color: #fff; display: none;">上 传</a> 
 									<input type="submit" class="btn btn-primary" id="submit" value="提　交" /> 
-									<a class="btn btn-default" href="/list">返回</a>
+									<a class="btn btn-default" href="/list" style="color:#666;">返　回</a>
+											</div></li>
+									</ul>
+								</div>
+								
 							</div>
 						</form>
 					</div>
@@ -70,32 +74,15 @@
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<!-- 弹出框 -->
 	<script type="text/javascript" src="js/layer/layer.js"></script>
-	<!-- 下拉 -->
-	<link href="js/select/jquery.searchableSelect.css" rel="stylesheet">
-	<script src="js/select/jquery.searchableSelect.js"></script>
-	<!-- 日期 -->
-	<link rel="stylesheet" href="js/date/jquery-ui-1.9.2.custom.css"
-		type="text/css">
-	<script type="text/javascript" src="js/date/jquery-ui-1.9.2.custom.js"></script>
-	<script type="text/javascript" src="js/jquery.unitDate.js"></script>
+	
 	<!-- 图片缩放 -->
 	<script type="text/javascript" src="js/jquery.resize.js"></script>
 	<!-- TIPS -->
 	<script type="text/javascript" src="js/jquery.tips.min.js"></script>
-	<!-- 人群选择 -->
-	<script type="text/javascript" src="js/jquery.ztree.core-3.5.min.js"></script>
-	<script type="text/javascript" src="js/jquery.ztree.excheck-3.5.js"></script>
+	
 	<script type="text/javascript" src="js/plupload.full.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
-
-			// 点击关闭
-// 			$(document).bind("click", function(e) {
-// 				var target = $(e.target);
-// 				if (target.closest(".poparea").length == 0) {
-// 					$(".poparea").hide();
-// 				}
-// 			});
 
 			//图片等比例缩放
 			$(".pic img").resizeimg(110, 110);
