@@ -16,10 +16,10 @@ export LC_ALL=zh_CN.UTF-8
 export JAVA_HOME=$JAVA_HOME
 
 CLASSPATH=`echo $JAVA_HOME/lib/*.jar | tr ' ' ':'`
-CLASSPATH=$CLASSPATH:`echo $SERVER_HOME/target/lib/compile/*.jar | tr ' ' ':'`
-CLASSPATH=$CLASSPATH:$SERVER_HOME/conf
-if [ -d "$SERVER_HOME/target/src/classes" ] ; then
-	CLASSPATH=$SERVER_HOME/target/src/classes:$CLASSPATH
+CLASSPATH=$CLASSPATH:`echo $SERVER_HOME/build/lib/*.jar | tr ' ' ':'`
+#CLASSPATH=$CLASSPATH:$SERVER_HOME/conf
+if [ -d "$SERVER_HOME/build/classes" ] ; then
+	CLASSPATH=$SERVER_HOME/build/classes:$CLASSPATH
 fi
 
 . ${PRGDIR}/startup.properties
