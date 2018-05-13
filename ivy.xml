@@ -30,6 +30,7 @@
 		<dependency org="org.springframework.boot" name="spring-boot-starter-freemarker" rev="1.5.12.RELEASE"/>
 		<dependency org="org.springframework.boot" name="spring-boot-starter-thymeleaf" rev="1.5.12.RELEASE"/>
 		<dependency org="org.springframework.boot" name="spring-boot-starter-web" rev="1.5.12.RELEASE"/>
+		<dependency org="org.springframework.boot" name="spring-boot-devtools" rev="1.5.12.RELEASE"/>
 		
 		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3.3"/>
 		<dependency org="commons-io" name="commons-io" rev="2.6"/>

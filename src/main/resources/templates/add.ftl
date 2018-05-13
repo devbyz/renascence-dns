@@ -150,9 +150,9 @@
 						//alert(JSON.stringify(file));
 						var filehtml = '<div id="p'+file.id+'" class="pic-box" name="creative">';
 							filehtml +='<div class="pic"><div class="subpic">正在上传</div></div>';
-							filehtml +='<p title="'+file.name+'">文件名:'+file.name+'</p>';
-							filehtml +='<p title="size">大小:'+plupload.formatSize(file.size)+'</p>';
-							filehtml +='<p title="big">尺寸:</p>';
+// 							filehtml +='<p title="'+file.name+'">文件名:'+file.name+'</p>';
+// 							filehtml +='<p title="size">大小:'+plupload.formatSize(file.size)+'</p>';
+// 							filehtml +='<p title="big">尺寸:</p>';
 							filehtml +='</div>';
 						//document.getElementById('filelist').innerHTML += filehtml;
 							document.getElementById('filelist').innerHTML = filehtml;

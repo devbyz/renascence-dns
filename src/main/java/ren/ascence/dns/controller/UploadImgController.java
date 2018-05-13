@@ -2,6 +2,7 @@ package ren.ascence.dns.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import ren.ascence.dns.utils.DateUtil;
 import ren.ascence.dns.utils.FileUtil;
+import ren.ascence.dns.utils.DateUtil.TimeFormat;
 import ren.ascence.dns.vo.AdVo;
 
 
@@ -102,7 +105,9 @@ public class UploadImgController {
       return ret;
     }
     try {
-      String fileName = file.getOriginalFilename();
+      String time = DateUtil.format(new Date(),TimeFormat.LONG_DATE_PATTERN_WITH_MILSEC_NUM.getValue());
+      String fileName = time + "-" + file.getOriginalFilename();
+      
       FileUtil.saveToLocal(file.getBytes(), getFileDir(), fileName);
       ret.put("creative", fileName);
     } catch (IOException e) {
