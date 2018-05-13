@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8" />
-    <title>腾讯首页</title>
+    <title>首页</title>
 </head>
 <style type="text/css">
     html, body

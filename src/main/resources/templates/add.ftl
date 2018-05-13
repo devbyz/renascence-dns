@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<#assign basePath = request.contextPath/> <#assign staticDomain =
-"http://localhost">
+<#assign basePath = request.contextPath/> 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,9 +31,9 @@
 												<input type="text" id="webUrl" name="webUrl" value=""
 													class="form-control">
 											</div></li>
-											<li><span class="p-l-t">广告链接：</span>
+											<li><span class="p-l-t">广告落地页：</span>
 											<div class="p-r-c">
-												<input type="text" id="adUrl" name="adUrl" value=""
+												<input type="text" id="adLanding" name="adLanding" value=""
 													class="form-control">
 											</div></li>
 										<li><span class="p-l-t">上传广告：</span>
@@ -49,7 +48,7 @@
 										<li><span id="creative-p-l-t" class="p-l-t" style="">广告：</span>
 											<div class="p-r-c">
 												<div class="up-pic-list">
-													<div id="filelist"><#-- 素材 --></div>
+													<div id="filelist"><#-- 广告 --></div>
 												</div>
 											</div></li>
 									</ul>
@@ -190,13 +189,13 @@
 							//console.log(obj.creativeList)
 							if(obj.creative!=null && typeof(obj.creative) != 'undefined'){
 								if(file.type == "application/x-shockwave-flash"){
-								$("#p"+file.id).find(".subpic").html('<img src="${staticDomain}/imgs/default_flash_background.png" alt="素材"/>');
+								$("#p"+file.id).find(".subpic").html('<img src="${staticDomain}/imgs/default_flash_background.png" alt="广告"/>');
 								}else{
-									$("#p"+file.id).find(".subpic").html('<img src="ad/'+obj.creative.name+'" alt="素材"/>');
+									$("#p"+file.id).find(".subpic").html('<img src="ad/'+obj.creative+'" alt="广告"/>');
 								}
 								$("#p"+file.id).find("p[title='big']").after('<span class="closed" name="pic_miss" id="p'+file.id+'">×</span>');
 								$("#p"+file.id).append('<input type="hidden" name="name" value="'+file.name.replace(",","")+'" />');
-								$("#p"+file.id).append('<input type="hidden" name="actualPath" id="actualPath" value="ad/'+obj.creative.name+'" />');
+								$("#p"+file.id).append('<input type="hidden" name="adUrl" id="adUrl" value="ad/'+obj.creative+'" />');
 							}else if(obj.failReason!=null && typeof(obj.failReason)!='undefined'){
 								$("#p"+file.id).find(".subpic").html('<img src="${staticDomain}/imgs/fail.jpg" />');
 								$("#p"+file.id).find("p[title='big']").after('<p style="color:red">原因:'+obj.failReason+'</p>');
@@ -205,7 +204,7 @@
 							}
 						}
 					//}
-					<#--点击删除上传的图片-->
+					<#--点击删除上传的广告-->
 				     $(".closed").click(function(){
 						if($(this).attr("name")=='pic_miss'){
 							$("#"+$(this).attr("id")).remove();

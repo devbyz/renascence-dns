@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>创意列表</title>
+	<title>广告列表</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css?v=2.0">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css?v=2.0">
 	<link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
@@ -21,7 +21,7 @@
 				<!-- 筛选 -->
 				<div class="ty-effect">
 					<div class="hd">
-						<a href="/add" class="btn btn-small btn-primary">新增创意</a>
+						<a href="/add" class="btn btn-small btn-primary">新增广告</a>
 					</div>
 				</div>
 				
@@ -32,9 +32,9 @@
 							<thead>
 								<tr>
 								<th>序号</th>
-									<th>网站</th>
-									<th>网站链接</th>
-									<th width="90">创意缩略图</th>
+									<th>劫持网站</th>
+									<th>广告落地页</th>
+									<th width="90">广告缩略图</th>
 									<th>操作</th>
 								</tr>
 							</thead>
@@ -43,12 +43,12 @@
 								<tr>
 								<td>${ct_index+1}</td>
 									<td>${ct.webUrl}</td>
-									<td>${ct.adUrl}</td>
+									<td>${ct.adLanding}</td>
 									<td>
 										<div class="pic">
 											<div class="subpic">
-												<a href="${ct.actualPath}" class="thickbox">
-													<img title="" alt="" src="${ct.actualPath}">
+												<a href="${ct.adLanding}" class="thickbox">
+													<img title="" alt="" src="${ct.adUrl}">
 												</a>
 											</div>
 										</div>

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("ren.ascence.dns")
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
     HibernateJpaAutoConfiguration.class})
-public class Main {
+public class DnsHijackStart {
   public static void main(String[] args) throws Exception {
-    SpringApplication.run(Main.class, args);
+    SpringApplication.run(DnsHijackStart.class, args);
   }
 }

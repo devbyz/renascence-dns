@@ -1,3 +1,2 @@
-http://www.baidu.com http://www.baidu.com ad/jdp.png
-http://www.baidu.com http://www.baidu.com ad/jdp.png
-http://www.baidu.com http://www.baidu.com ad/jdp.png
+http://www.baidu.com ad/jdp.png http://www.baidu.com
+http://www.baidu.com3 ad/jdp.png http://www.baidu.com
