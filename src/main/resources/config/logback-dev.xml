@@ -12,6 +12,6 @@
         <appender-ref ref="stdout"/>
     </root>
 
-    <logger name="info.xiaomo" level="DEBUG"/>
+    <logger name="ren.ascence.dns" level="DEBUG"/>
 
 </configuration>
