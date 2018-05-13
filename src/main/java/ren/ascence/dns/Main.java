@@ -9,13 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("ren.ascence.dns")
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,
+    HibernateJpaAutoConfiguration.class})
 public class Main {
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Main.class, args);
-        
-        System.out.println("http://localhost:8080/test");
-        System.out.println("http://localhost:8080/index");
-        System.out.println("http://localhost:8080/img/jdp.jpg");
-    }
+  public static void main(String[] args) throws Exception {
+    SpringApplication.run(Main.class, args);
+  }
 }
