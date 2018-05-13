@@ -26,7 +26,7 @@
 							<div class="basic-info">
 								<div class="bd">
 									<ul>
-										<li><span class="p-l-t">网　　　站：</span>
+										<li><span class="p-l-t">劫持域名：</span>
 											<div class="p-r-c">
 												<input type="text" id="webUrl" name="webUrl" value=""
 													class="form-control">

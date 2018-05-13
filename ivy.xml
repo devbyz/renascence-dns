@@ -34,7 +34,7 @@
 		
 		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3.3"/>
 		<dependency org="commons-io" name="commons-io" rev="2.6"/>
-		<dependency org="com.brooksandrus" name="swfheader" rev="1.0.0-SNAPSHOT" changing="true" />
+<!-- 		<dependency org="com.brooksandrus" name="swfheader" rev="1.0.0-SNAPSHOT" changing="true" /> -->
 		
 		<dependency org="com.google.guava" name="guava" rev="23.0"/>
 		<dependency org="org.apache.commons" name="commons-lang3" rev="3.7"/>

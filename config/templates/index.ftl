@@ -43,14 +43,14 @@
     }
 
 </script>
-<iframe src="${url}" id="iframeId" name="ifrmname"  scrolling="no" frameborder="0" ></iframe>
+<iframe src="${adVo.webUrl}" id="iframeId" name="ifrmname"  scrolling="no" frameborder="0" ></iframe>
 	<dl id="boxad" data-num="0">
 		<dt>
 			<a id="AD_tit">ad</a>
 			<a href="javascript:;" id="close" ><img title="点击关闭" src="/imgs/guanbi.jpg" border=0></a>
 		</dt>
 		<dd>
-			<a href="${lurl}" target="_blank" title="ad"><img src="/imgs/jdp.png"></a>
+			<a href="${adVo.adLanding}" target="_blank" title="ad"><img src="${adVo.adUrl}"></a>
 		</dd>
 	</dl>
 	<script src="/js/jquery-2.1.4.min.js" type="text/javascript"></script>

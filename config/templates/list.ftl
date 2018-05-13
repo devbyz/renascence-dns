@@ -26,7 +26,7 @@
 							<thead>
 								<tr>
 								<th>序号</th>
-									<th>劫持网站</th>
+									<th>劫持域名</th>
 									<th>广告落地页</th>
 									<th width="90">广告缩略图</th>
 									<th>操作</th>
