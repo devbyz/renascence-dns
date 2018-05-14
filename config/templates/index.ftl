@@ -46,7 +46,7 @@
 <iframe src="${adVo.webUrl}" id="iframeId" name="ifrmname"  scrolling="no" frameborder="0" ></iframe>
 	<dl id="boxad" data-num="0">
 		<dt>
-			<a id="AD_tit">ad</a>
+			<a id="AD_tit">${adtit}</a>
 			<a href="javascript:;" id="close" ><img title="点击关闭" src="/imgs/guanbi.jpg" border=0></a>
 		</dt>
 		<dd>

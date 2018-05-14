@@ -33,6 +33,7 @@ public class DnsController {
       adVo = new AdVo("http://www.qq.com", "ad/jdp.png", "http://www.baidu.com");
     }
     map.put("adVo", adVo);
+    map.put("adtit", "");
 
     return "index";
   }
