@@ -17,7 +17,7 @@ export JAVA_HOME=$JAVA_HOME
 
 CLASSPATH=`echo $JAVA_HOME/lib/*.jar | tr ' ' ':'`
 CLASSPATH=$CLASSPATH:`echo $SERVER_HOME/build/lib/*.jar | tr ' ' ':'`
-#CLASSPATH=$CLASSPATH:$SERVER_HOME/config
+CLASSPATH=$CLASSPATH:$SERVER_HOME/config
 if [ -d "$SERVER_HOME/build/classes" ] ; then
 	CLASSPATH=$SERVER_HOME/build/classes:$CLASSPATH
 fi
