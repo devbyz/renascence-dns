@@ -31,6 +31,10 @@ public class DnsController {
     AdVo adVo = adHandler.getAd(request.getServerName());
     if (Objects.isNull(adVo)) {
       adVo = new AdVo("http://www.qq.com", "ad/jdp.png", "http://www.baidu.com");
+    }else {
+      if(!adVo.getWebUrl().startsWith("http")) {
+        adVo.setWebUrl("http://"+adVo.getWebUrl());
+      }
     }
     map.put("adVo", adVo);
     map.put("adtit", "");
