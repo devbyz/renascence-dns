@@ -1,0 +1,16 @@
+dl,dt,dd{padding:0px;margin:0px;list-style-type: none;}
+#boxad {border: #b5b5b5 1px solid; padding: 1px 1px 0px 1px;z-index: 300; background: #ffffff; float: right; overflow: hidden; width: 300px; height: 250px;right: 0px; bottom: 0px;position:fixed;
+_position:absolute; /*兼容IE6*/
+_top:expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight); /*兼容IE6*/
+}
+/*tit样式*/
+#boxad dt,#boxad dt #AD_tit{height:28px;line-height:28px;}
+#boxad dt{width:100%;background-image: url(/imgs/bg.jpg);background-repeat:repeat-x;background-position: right top;}
+#boxad dt #AD_tit{display:block;overflow:hidden;}
+#boxad dd{ width:96%; height:auto; display:block; margin:0 auto; overflow:hidden; padding:4px 0px 4px 0px;}
+#AD_tit{ width:70%;float:left;color:#203D5F;font-size:10pt;text-indent:0.8em;font-weight:bold;}
+#close,#zoomad{ width:12px;	height:28px;line-height:28px; display:block; float:right; margin-right:8px;}
+#close{ width:12px; float:right;}
+#zoomad{ float:right;}
+#close img{ margin-top:8px}
+#zoomad img{ margin-top:10px}
