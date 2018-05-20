@@ -38,7 +38,7 @@
 		
 		<dependency org="com.google.guava" name="guava" rev="23.0"/>
 		<dependency org="org.apache.commons" name="commons-lang3" rev="3.7"/>
-		
+		<dependency org="com.squareup.okhttp3" name="okhttp" rev="3.10.0"/>
 	</dependencies>
 
 </ivy-module>

@@ -1,5 +1,6 @@
 package ren.ascence.dns.controller;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ren.ascence.dns.handler.AdHandler;
+import ren.ascence.dns.utils.GetUtil;
 import ren.ascence.dns.vo.AdVo;
 
 import org.slf4j.Logger;
@@ -21,7 +23,7 @@ public class DnsController {
   @Autowired
   private AdHandler adHandler;
 
-  @RequestMapping("/")
+  @RequestMapping("/index")
   public String index(ModelMap map, HttpServletRequest request) {
     // String requestUrl =
     // request.getScheme()+"://"+request.getServerName()+request.getRequestURI()+"?"+request.getQueryString();
@@ -33,13 +35,27 @@ public class DnsController {
       adVo = new AdVo("http://www.qq.com", "ad/jdp.png", "http://www.baidu.com");
     }else {
       if(!adVo.getWebUrl().startsWith("http")) {
-        adVo.setWebUrl("http://"+adVo.getWebUrl());
+        adVo.setWebUrl("http://www."+adVo.getWebUrl());
       }
     }
     map.put("adVo", adVo);
     map.put("adtit", "");
 
     return "index";
+  }
+  
+  @RequestMapping("/")
+  public String test(ModelMap map, HttpServletRequest request) {
+    String url = request.getScheme()+"://"+request.getServerName();
+    //String url = "http://www.thedayscolor.com";
+    try {
+      String c = GetUtil.execute(url);
+      map.put("c", c);
+    } catch (IOException e) {
+      map.put("c", "");
+      e.printStackTrace();
+    }
+    return "c";
   }
 
 }
