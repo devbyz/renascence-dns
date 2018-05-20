@@ -81,6 +81,7 @@
     </target>
 
    	<target name="compile" depends="resolve">
+   		<delete dir="${classes.build.dir}" />
    		<mkdir dir="${classes.build.dir}" />
         <javac  srcdir="${src.dir}"
                 destdir="${classes.build.dir}"
