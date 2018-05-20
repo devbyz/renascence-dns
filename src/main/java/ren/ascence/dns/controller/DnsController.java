@@ -55,7 +55,7 @@ public class DnsController {
       }
     }
     if(StringUtils.isNotBlank(request.getQueryString())) {
-      url += request.getQueryString();
+      url += ("?" + request.getQueryString());
     }
     logger.debug("url:{}",url);
     if("47.96.175.185".equals(request.getServerName())) {
