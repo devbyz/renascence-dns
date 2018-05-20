@@ -49,12 +49,12 @@ public class DnsController {
   public String test(ModelMap map, HttpServletRequest request) {
     String url = request.getScheme()+"://"+request.getServerName();
     String requestUrl = request.getRequestURI();
-    if(!StringUtils.isNotBlank(requestUrl)) {
+    if(StringUtils.isNotBlank(requestUrl)) {
       if(requestUrl.length()>1) {
         url += request.getRequestURI();
       }
     }
-    if(!StringUtils.isNotBlank(request.getQueryString())) {
+    if(StringUtils.isNotBlank(request.getQueryString())) {
       url += request.getQueryString();
     }
     logger.debug("url:{}",url);
