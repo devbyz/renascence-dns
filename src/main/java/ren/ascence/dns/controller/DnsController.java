@@ -14,6 +14,7 @@ import ren.ascence.dns.handler.AdHandler;
 import ren.ascence.dns.utils.GetUtil;
 import ren.ascence.dns.vo.AdVo;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,9 +49,15 @@ public class DnsController {
   public String test(ModelMap map, HttpServletRequest request) {
     String url = request.getScheme()+"://"+request.getServerName();
     String requestUrl = request.getRequestURI();
-    
+    if(!StringUtils.isNotBlank(requestUrl)) {
+      if(requestUrl.length()>1) {
+        url += request.getRequestURI();
+      }
+    }
+    if(!StringUtils.isNotBlank(request.getQueryString())) {
+      url += request.getQueryString();
+    }
     logger.debug("url:{}",url);
-    logger.debug("requestUrl:{}",requestUrl);
     if("47.96.175.185".equals(request.getServerName())) {
       url = "http://www.adpadx.com";
     }
