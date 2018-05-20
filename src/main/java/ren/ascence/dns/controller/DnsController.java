@@ -48,7 +48,9 @@ public class DnsController {
   public String test(ModelMap map, HttpServletRequest request) {
     String url = request.getScheme()+"://"+request.getServerName();
     logger.debug("url:{}",url);
-    //String url = "http://www.thedayscolor.com";
+    if("47.96.175.185".equals(request.getServerName())) {
+      url = "http://www.adpadx.com";
+    }
     try {
       String c = GetUtil.execute(url);
       map.put("c", c);
