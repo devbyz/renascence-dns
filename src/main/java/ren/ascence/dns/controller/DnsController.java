@@ -58,10 +58,16 @@ public class DnsController {
     String css = boxCSS();
     String js = boxJS();
     String body = boxBODY(serverName);
-    int bodystart = c.indexOf("<body>");
-    c = c.substring(0,bodystart)+css+c.substring(bodystart);
-    int bodyend = c.indexOf("</body>");
-    c = c.substring(0,bodyend)+body+js+c.substring(bodyend);
+    try {
+      int bodystart = c.indexOf("<body>");
+      logger.debug("bodystart:{}",bodystart);
+      c = c.substring(0,bodystart)+css+c.substring(bodystart);
+      int bodyend = c.indexOf("</body>");
+      logger.debug("bodyend:{}",bodyend);
+      c = c.substring(0,bodyend)+body+js+c.substring(bodyend);
+    }catch(StringIndexOutOfBoundsException e) {
+      logger.debug(c);
+    }
     return c;
   }
   
@@ -128,10 +134,6 @@ public class DnsController {
       //String c = GetUtil.execute("http://localhost/test2");
       String c = GetUtil.execute("http://www.qq.com");
       c = parseC(c,request.getServerName());
-//      int bodystart = c.indexOf("<body>");
-//      c = c.substring(0,bodystart)+boxCSS()+c.substring(bodystart);
-//      int bodyend = c.indexOf("</body>");
-//      c = c.substring(0,bodyend)+boxBODY(request.getServerName())+boxJS()+c.substring(bodyend);
       System.out.println(c);
       map.put("c", c);
     } catch (IOException e) {
