@@ -37,4 +37,10 @@ public class AdVo {
     this.adLanding = adLanding;
   }
 
+  @Override
+  public String toString() {
+    return "AdVo [webUrl=" + webUrl + ", adUrl=" + adUrl + ", adLanding=" + adLanding + "]";
+  }
+
+
 }
