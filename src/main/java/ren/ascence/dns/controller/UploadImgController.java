@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import ren.ascence.dns.handler.AdHandler;
-import ren.ascence.dns.utils.DateUtil;
+import ren.ascence.dns.utils.TimeUtil;
 import ren.ascence.dns.utils.FileUtil;
-import ren.ascence.dns.utils.DateUtil.TimeFormat;
+import ren.ascence.dns.utils.TimeUtil.TimeFormat;
 import ren.ascence.dns.vo.AdVo;
 
 
@@ -93,7 +93,7 @@ public class UploadImgController {
       return ret;
     }
     try {
-      String time = DateUtil.format(new Date(),TimeFormat.LONG_DATE_PATTERN_WITH_MILSEC_NUM.getValue());
+      String time = TimeUtil.format(new Date(),TimeFormat.LONG_DATE_PATTERN_WITH_MILSEC_NUM);
       String fileName = time + "-" + file.getOriginalFilename();
 //      String fileName = file.getOriginalFilename();
       
