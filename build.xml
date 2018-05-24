@@ -1,8 +1,16 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" default="report">
 	<property environment="env" />
+	<property name="src.dir" value="${basedir}/src/main/java" />
+	<property name="test.dir" value="${basedir}/src/test/java" />
+	<property name="lib.dir" value="${basedir}/build/lib" />
+	<property name="report.build.dir" value="${basedir}/build/report" />
+	<property name="classes.build.dir" value="${basedir}/build/classes" />
+	<property name="test.classes.build.dir" value="${basedir}/build/test/classes" />
+	<property name="artifacts.build.dir" value="${basedir}/build/artifact" />
+	<property name="javadoc.build.dir" value="${basedir}/build/javadoc" />
+	<property name="ivy.minimum.javaversion" value="1.8" />
+	<property name="debug.mode" value="on" />
 	
-    <property file="build.properties" />
-    
     <ivy:settings file="ivysettings.xml" />
     
     <target name="resolve">
@@ -80,8 +88,7 @@
         </jar>
     </target>
 
-   	<target name="compile" depends="resolve">
-   		<delete dir="${classes.build.dir}" />
+   	<target name="compile">
    		<mkdir dir="${classes.build.dir}" />
         <javac  srcdir="${src.dir}"
                 destdir="${classes.build.dir}"

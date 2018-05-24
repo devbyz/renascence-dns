@@ -1,14 +1,20 @@
 <ivysettings>
 	<settings defaultResolver="default"/>
-	<properties file="ivyversion.properties" />
 	<properties file="ivysetting.properties" />
+	<properties file="ivyversion.properties" />
 	<caches defaultCacheDir="${default.cache.dir}" />
+	<property name="repo.urlbase" value="http://${repo.host}:${repo.port}" />
+	<property name="nexus-public" value="${repo.urlbase}/repository/maven-public" />
+	<property name="nexus-releases" value="${repo.urlbase}/repository/maven-releases" />
+	<property name="nexus-snapshots" value="${repo.urlbase}/repository/maven-snapshots" />
+	
 	<credentials host="${repo.host}" realm="Sonatype Nexus Repository Manager" username="${username}" passwd="${passwd}"/>
 	<resolvers>
 	    <chain name="default">
 			<ibiblio name="nexus-public" m2compatible="true" root="${nexus-public}"/>
 			<ibiblio name="nexus-snapshots" m2compatible="true" root="${nexus-snapshots}"/>
 			<ibiblio name="nexus-releases" m2compatible="true" root="${nexus-releases}"/>
+			<ibiblio name="repomanager" m2compatible="true" root="https://artifacts.elastic.co/maven" />	
         </chain>
 		<url name="share-master-releases" m2compatible="true" checkmodified="true">
 			<artifact
@@ -28,6 +34,3 @@
 		</url>		
 	</resolvers>
 </ivysettings>
-
-
-
